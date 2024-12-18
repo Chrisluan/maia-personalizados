@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Button, Flex, Box, Text } from '@chakra-ui/react'
 import { ProductCard } from './webComponents/ProductCard'
 import { Product } from './types/Product';
-import main from '../src/backend/dataConnection'
 function App() {
   const products: Product[] = [
     {
