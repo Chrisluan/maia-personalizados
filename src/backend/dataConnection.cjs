@@ -1,9 +1,23 @@
 const { MongoClient } = require("mongodb");
 require("dotenv").config({ path: "./config.env" });
 
-export  async function main() {
-  const dbcon = process.env.mongodb;
 
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+
+
+async function main() {
+  const dbcon = process.env.mongodb;
   // Conexão com o cliente MongoDB
   const client = new MongoClient(dbcon);
   try {
