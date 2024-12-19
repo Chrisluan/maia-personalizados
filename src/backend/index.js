@@ -4,7 +4,8 @@ require("dotenv").config({ path: "./config.env" });
 const express = require('express');
 const app = express();
 const port = 3000;
-
+const cors = require('cors');
+app.use(cors());
 app.get('/getProducts', async (req, res) => {
   try {
     const data = await getData();
