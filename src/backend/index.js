@@ -1,21 +1,25 @@
 const { MongoClient } = require("mongodb");
 require("dotenv").config({ path: "./config.env" });
 
+const express = require('express');
+const app = express();
+const port = 3000;
 
-const express = require('express')
-const app = express()
-const port = 3000
-app.get('/teste', (req, res) => {
-  res.send('Hello World!')
-})
+app.get('/getProducts', async (req, res) => {
+  try {
+    const data = await getData();
+    res.json(data);
+  } catch (error) {
+    console.error("Erro ao buscar os dados:", error);
+    res.status(500).send("Erro no servidor");
+  }
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
 
-
-
-async function main() {
+async function getData() {
   const dbcon = process.env.mongodb;
   const client = new MongoClient(dbcon);
 
@@ -25,13 +29,10 @@ async function main() {
     const collection = db.collection("products");
     const produtos = await collection.find({}).toArray();
 
-    produtos.forEach((produto) => console.log(produto.name));
+    return produtos;
   } catch (e) {
     console.error("Erro ao buscar produtos:", e);
   } finally {
     await client.close();
   }
 }
-
-main();
-
