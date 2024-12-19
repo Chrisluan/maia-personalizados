@@ -6,9 +6,11 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/teste', (req, res) => {
+app.get('/hello', (req, res) => {
+  console.log('Endpoint /hello hit!');
   res.send('Hello World!')
 })
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
