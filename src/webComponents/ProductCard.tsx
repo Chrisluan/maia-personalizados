@@ -1,5 +1,5 @@
-import React from "react";
-import { ChakraProvider, Box, Image, Text, Button, Flex, IconButton } from "@chakra-ui/react";
+
+import { Box, Image, Text, Button, Flex, IconButton } from "@chakra-ui/react";
 import { FaCartPlus } from "react-icons/fa";
 import { Product } from "@/types/Product";
 
