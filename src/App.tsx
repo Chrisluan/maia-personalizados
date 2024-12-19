@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://maia-personalizados.vercel.app/getProducts')
+        const response = await fetch('https://maia-personalizados-api.vercel.app/getProducts')
         const data = await response.json()
         setProducts(data)
       } catch (e) {
