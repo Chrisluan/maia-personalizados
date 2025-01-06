@@ -1,6 +1,5 @@
 import { Product } from '@/types/Product';
-import { Flex, Button, Image } from '@chakra-ui/react'
-import React from 'react'
+import { Button, Flex, Image } from '@chakra-ui/react';
 
 interface PromotionBannerProps {
     product?:Product;

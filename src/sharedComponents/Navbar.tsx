@@ -1,23 +1,20 @@
-import React from 'react';
+import { InputGroup } from "@/components/ui/input-group";
 import {
-  Box,
   Flex,
   HStack,
-  Link,
-  Image,
   IconButton,
+  Image,
   Input,
-  Group,
   InputAddon,
+  Link
 } from '@chakra-ui/react';
-import { InputGroup } from "@/components/ui/input-group"
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { FaSearch } from 'react-icons/fa';
 import { FaCartShopping } from 'react-icons/fa6';
 import { FiMenu } from 'react-icons/fi';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
-import logo from '/logo.svg';
 import { MenuContent, MenuRoot, MenuTrigger } from '@/components/ui/menu';
+import logo from '/logo.svg';
 
 export const Navbar = () => {
   const isMobile = useMediaQuery('(max-width:600px)');

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Button, Flex, IconButton, Image } from '@chakra-ui/react';
+import { Box, Flex, IconButton, Image } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import { FiArrowRight } from 'react-icons/fi';
 import ph1 from '/PH1.jpg';
 import ph2 from '/PH2.jpg';
 import ph3 from '/PH3.jpg';
-import { FaArrowLeft } from 'react-icons/fa';
-import { FiArrowRight } from 'react-icons/fi';
 
 const images = [
     ph1,

@@ -1,7 +1,7 @@
-import { Box, Image, Text, Button, Flex, IconButton } from "@chakra-ui/react";
-import { FaCartPlus } from "react-icons/fa";
 import { Product } from "@/types/Product";
 import { formatPrice } from "@/utils/commonUtils";
+import { Box, Button, Flex, IconButton, Image, Text } from "@chakra-ui/react";
+import { FaCartPlus } from "react-icons/fa";
 
 
 

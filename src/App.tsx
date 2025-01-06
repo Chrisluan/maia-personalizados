@@ -1,12 +1,10 @@
+import { Flex, GridItem, SimpleGrid, Spinner } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { Flex, GridItem, Box, Text, SimpleGrid, Spinner, Button, IconButton, Group } from '@chakra-ui/react';
-import { ProductCard } from './sharedComponents/ProductCard';
+import { Carrosel } from './sharedComponents/Carrosel';
 import { Navbar } from './sharedComponents/Navbar';
 import { Outdoor } from './sharedComponents/Outdoor';
 import { OutdoorCard } from './sharedComponents/OutdoorCard';
-import { FaCartPlus } from 'react-icons/fa';
-import { formatPrice } from './utils/commonUtils';
-import { Carrosel } from './sharedComponents/Carrosel';
+import { ProductCard } from './sharedComponents/ProductCard';
 import { PromotionBanner } from './sharedComponents/PromotionBanner';
 function App() {
   const [products, setProducts] = useState([]);
