@@ -1,36 +1,60 @@
-import { useEffect, useState } from 'react'
-import { Flex, } from '@chakra-ui/react'
-import { ProductCard } from './webComponents/ProductCard'
+import { useEffect, useState } from 'react';
+import { Flex, GridItem, Box, Text, SimpleGrid, Spinner, Button, IconButton, Group } from '@chakra-ui/react';
+import { ProductCard } from './sharedComponents/ProductCard';
+import { Navbar } from './sharedComponents/Navbar';
+import { Outdoor } from './sharedComponents/Outdoor';
+import { OutdoorCard } from './sharedComponents/OutdoorCard';
+import { FaCartPlus } from 'react-icons/fa';
+import { formatPrice } from './utils/commonUtils';
+import { Carrosel } from './sharedComponents/Carrosel';
+import { PromotionBanner } from './sharedComponents/PromotionBanner';
 function App() {
-
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://maia-personalizados-api.vercel.app/getProducts')
-        const data = await response.json()
-        setProducts(data)
+        const response = await fetch('https://maia-personalizados-api.vercel.app/getProducts');
+        const data = await response.json();
+        setProducts(data);
       } catch (e) {
-        console.log(e)
+        console.log(e);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-      
-    }
+    };
     fetchProducts();
   }, []);
 
   return (
-    <Flex gap={0}>
-      { loading ? (<h1>Loading...</h1>) :
-      products.map((item, k) => {
-        return <ProductCard key={k} item={item} />
-      })}
-
-    </Flex>
-  )
+    <>
+      <Navbar />
+      <Outdoor>
+        <OutdoorCard priority={1.5}>
+          <Carrosel></Carrosel>
+        </OutdoorCard>
+        <OutdoorCard priority={1}>
+        <PromotionBanner product={loading ? null: products[6]}></PromotionBanner>
+        </OutdoorCard>
+      </Outdoor>
+      <SimpleGrid
+        gap={5}
+        columns={{ base: 2, sm: 2, md: 3, lg: 4 }}
+        padding={5}
+      >
+        {loading ? (
+          <Flex justify="center" align="center" width="100%">
+            <Spinner size="xl" />
+          </Flex>
+        ) : (
+          products.map((item, k) => (
+            <GridItem key={k}><ProductCard item={item} /></GridItem>
+          ))
+        )}
+      </SimpleGrid>
+    </>
+  );
 }
 
-export default App
+export default App;
