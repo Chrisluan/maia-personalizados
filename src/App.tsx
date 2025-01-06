@@ -33,7 +33,7 @@ function App() {
           <Carrosel></Carrosel>
         </OutdoorCard>
         <OutdoorCard priority={1}>
-        <PromotionBanner product={loading ? null: products[6]}></PromotionBanner>
+        <PromotionBanner product={loading ? undefined: products[6]}></PromotionBanner>
         </OutdoorCard>
       </Outdoor>
       <SimpleGrid
