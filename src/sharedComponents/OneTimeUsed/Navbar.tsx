@@ -1,5 +1,6 @@
 import { InputGroup } from "@/components/ui/input-group";
 import {
+  Box,
   Flex,
   HStack,
   IconButton,
@@ -10,14 +11,17 @@ import {
 } from '@chakra-ui/react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { FaSearch } from 'react-icons/fa';
-import { FaCartShopping } from 'react-icons/fa6';
+import { TbShoppingCart } from "react-icons/tb";
 import { FiMenu } from 'react-icons/fi';
 
 import { MenuContent, MenuRoot, MenuTrigger } from '@/components/ui/menu';
 import logo from '/logo.svg';
+import { useBuyingContext } from "@/Context/BuyingContext";
+import { FaCartShopping } from "react-icons/fa6";
 
 export const Navbar = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
+  const { products } = useBuyingContext();
 
   return (
     <Flex direction="column" width={"100%"}>
@@ -31,7 +35,12 @@ export const Navbar = () => {
         width="100%"
       >
         {/* Logo */}
-        <Image height="45px" src={logo} alt="Logo" />
+        <Link href="/">
+          <Image height="45px" src={logo} alt="Logo" style={{
+            
+          }} />
+
+        </Link>
 
         {/* Mobile Menu Icon */}
         {isMobile ? (
@@ -46,7 +55,7 @@ export const Navbar = () => {
           </IconButton>
         ) : (
           // Desktop Navigation
-          <HStack gap={"30px"}>
+          <HStack gap={"30px"} color={"white"}>
             <MenuRoot>
               <MenuTrigger asChild>
                 <Link>Categorias</Link>
@@ -65,7 +74,7 @@ export const Navbar = () => {
         {!isMobile && (
           <Flex width={"30%"} gap={1}>
 
-            <InputGroup width={"100%"}>
+            <InputGroup width={"100%"} startElement={<FaSearch size={"20px"}></FaSearch>}>
               <Input
                 placeholder="Procurar..."
                 bg="#E8E3FF"
@@ -81,8 +90,32 @@ export const Navbar = () => {
               bg="#E8E3FF"
               borderRadius="0 20px 20px 0"
               border={"none"}
+
             >
-              <FaCartShopping size="15px" color="black" />
+
+              <IconButton bg={"transparent"}>
+                {products.length !== 0 && (
+                  <Flex
+                    style={{
+                      background: "purple",
+                      height: "15px",
+                      width: "15px",
+                      borderRadius: "100%",
+                      position: "absolute",
+                      top: 0,
+                      right: 0,
+                      textAlign: "center",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {products.length}
+                  </Flex>
+                )}
+
+                <TbShoppingCart size="15px" color="black" />
+              </IconButton>
+
             </InputAddon>
           </Flex>
         )}
@@ -93,7 +126,7 @@ export const Navbar = () => {
         <Flex width={"100%"} style={{
           padding: "15px",
           backgroundColor: "#531FC2",
-          justifyContent:"center"
+          justifyContent: "center"
         }}>
           <Flex width={"90%"} gap={1}>
             <InputGroup width={"100%"} startElement={<FaSearch size={"20px"}></FaSearch>}>
@@ -114,7 +147,28 @@ export const Navbar = () => {
               borderRadius="0 20px 20px 0"
               border={"none"}
             >
-              <FaCartShopping size="15px" color="black" />
+              <IconButton bg={"transparent"}>
+                {products.length !== 0 && (
+                  <Flex
+                    style={{
+                      background: "purple",
+                      height: "15px",
+                      width: "15px",
+                      borderRadius: "100%",
+                      position: "absolute",
+                      top: 0,
+                      right: 0,
+                      textAlign: "center",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {products.length}
+                  </Flex>
+                )}
+
+                <FaCartShopping size="15px" color="black" />
+              </IconButton>
             </InputAddon>
           </Flex>
         </Flex>

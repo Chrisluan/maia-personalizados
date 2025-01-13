@@ -7,7 +7,7 @@ interface OutdoorProps {
 
 export const Outdoor: React.FC<OutdoorProps> = ({ children }) => {
   return (
-    <Flex flexDir={{base:"column", md:"row"}} maxWidth={"100dvw"} gap={2} height={"auto"} minHeight={"100%"}overflow={"hidden"}>
+    <Flex aspectRatio={"auto"} flexDir={{base:"column", md:"row"}} maxWidth={"100dvw"} gap={2} height={"auto"} minHeight={"100%"}overflow={"hidden"}>
       {children}
     </Flex>
   );

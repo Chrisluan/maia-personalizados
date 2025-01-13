@@ -4,6 +4,7 @@ import React from 'react';
 interface OutdoorCardProps {
   children?: React.ReactNode;
   priority: number;
+  
 }
 
 export const OutdoorCard: React.FC<OutdoorCardProps> = ({ priority, children }) => {
@@ -16,7 +17,7 @@ export const OutdoorCard: React.FC<OutdoorCardProps> = ({ priority, children }) 
       minHeight="20rem"
       width="100%"
     >
-      <Box position="absolute" bottom={0} height="100%" minHeight="fit-content">
+      <Box position="absolute" width="100%" height={"100%"} minHeight="fit-content">
         {children}
       </Box>
     </Flex>

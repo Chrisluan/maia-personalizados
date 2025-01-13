@@ -34,6 +34,7 @@ async function getData() {
     await client.connect();
     const db = client.db("maia");
     const collection = db.collection("products");
+    collection.send()
     const produtos = await collection.find({}).toArray();
 
     return produtos;
