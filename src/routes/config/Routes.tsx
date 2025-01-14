@@ -1,9 +1,8 @@
-import React from "react";
-import Home from "../Home";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { ProductView } from "../ProductView";
-import { Navbar } from "@/sharedComponents/OneTimeUsed/Navbar";
 import { BuyingProvider } from "@/Context/BuyingContext";
+import { Navbar } from "@/sharedComponents/OneTimeUsed/Navbar";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Home from "../Home";
+import { ProductView } from "../ProductView";
 
 const AppRoutes = () => {
 

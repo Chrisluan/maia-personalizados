@@ -1,8 +1,5 @@
-import App from '@/App';
 import { useAllProductsContext } from '../Context/AllProductsContext';
-import { BuyingProvider } from '../Context/BuyingContext';
 import { Carrosel } from '../sharedComponents/OneTimeUsed/Carrosel';
-import { Navbar } from '../sharedComponents/OneTimeUsed/Navbar';
 import { Outdoor } from '../sharedComponents/OneTimeUsed/Outdoor';
 import { PromotionBanner } from '../sharedComponents/OneTimeUsed/PromotionBanner';
 import { ProductShelf } from '../sharedComponents/OneTimeUsed/sections/Products/ProductShelf';
