@@ -11,6 +11,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
+
 app.get('/getProducts', async (req, res) => {
   try {
     const data = await getData();
@@ -34,7 +35,6 @@ async function getData() {
     await client.connect();
     const db = client.db("maia");
     const collection = db.collection("products");
-    collection.send()
     const produtos = await collection.find({}).toArray();
 
     return produtos;
