@@ -1,8 +1,7 @@
+import { useBuyingContext } from "@/Context/BuyingContext";
 import { Product } from "@/types/Product";
 import { Button, HStack, IconButton } from "@chakra-ui/react";
 import { TbShoppingCartPlus, TbShoppingCartX } from "react-icons/tb";
-import { useBuyingContext } from "@/Context/BuyingContext";
-import { useState } from "react";
 
 interface Props {
   product: Product;

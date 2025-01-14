@@ -1,9 +1,9 @@
 import { Product } from '@/types/Product';
 import { formatPrice } from '@/utils/commonUtils';
-import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
-import loadinggif from '/loading.gif';
+import { Box, Flex, Image, Text } from '@chakra-ui/react';
 import { keyframes } from '@emotion/react';
 import { BuyCartButton } from '../BuyCartButton';
+import loadinggif from '/loading.gif';
 interface PromotionBannerProps {
     product?: Product;
 }

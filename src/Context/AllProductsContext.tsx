@@ -1,5 +1,5 @@
-import { createContext, useState, ReactNode, useContext, useEffect } from "react";
 import { Product } from "@/types/Product";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 interface AllProductsContext {
   products: Product[];

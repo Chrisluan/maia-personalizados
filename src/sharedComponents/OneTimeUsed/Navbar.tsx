@@ -1,6 +1,5 @@
 import { InputGroup } from "@/components/ui/input-group";
 import {
-  Box,
   Flex,
   HStack,
   IconButton,
@@ -11,13 +10,13 @@ import {
 } from '@chakra-ui/react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { FaSearch } from 'react-icons/fa';
-import { TbShoppingCart } from "react-icons/tb";
 import { FiMenu } from 'react-icons/fi';
+import { TbShoppingCart } from "react-icons/tb";
 
 import { MenuContent, MenuRoot, MenuTrigger } from '@/components/ui/menu';
-import logo from '/logo.svg';
 import { useBuyingContext } from "@/Context/BuyingContext";
 import { FaCartShopping } from "react-icons/fa6";
+import logo from '/logo.svg';
 
 export const Navbar = () => {
   const isMobile = useMediaQuery('(max-width:600px)');

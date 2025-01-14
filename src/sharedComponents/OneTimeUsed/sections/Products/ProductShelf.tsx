@@ -1,11 +1,10 @@
-import { useAllProductsContext } from '@/Context/AllProductsContext'
-import { ProductCard } from '@/sharedComponents/ProductCard'
-import { Box, Flex, Grid, GridItem, HStack, SimpleGrid, Spinner, Text, VStack } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import { Carousel } from 'primereact/carousel';
+import { useAllProductsContext } from '@/Context/AllProductsContext';
+import { ProductCard } from '@/sharedComponents/ProductCard';
+import { Box, Grid, Text, VStack } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
 export const ProductShelf = () => {
 
-    const { products, isLoading } = useAllProductsContext();
+    const { products } = useAllProductsContext();
     const [categories, setCategories] = useState<(string | undefined)[]>([]);
 
 
@@ -26,7 +25,7 @@ export const ProductShelf = () => {
                 {categories.map((ct, key) => {
                     // Filter products that include the current category in their categories
                     const filteredProducts = products.filter(product =>
-                        product.categories?.includes(ct)
+                        product.categories?.includes(ct || "")
                     );
 
                     return (

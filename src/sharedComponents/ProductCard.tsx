@@ -1,11 +1,9 @@
 import { Product } from "@/types/Product";
 import { formatPrice } from "@/utils/commonUtils";
-import { Box, Link, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { BuyCartButton } from "./BuyCartButton";
-import { useNavigate } from 'react-router-dom';
 
 export const ProductCard = ({ item }: { item: Product }) => {
-  const navigate = useNavigate();
 
   return (
     <Flex
@@ -90,7 +88,7 @@ export const ProductCard = ({ item }: { item: Product }) => {
         </Flex>
 
         <Box pt={2} paddingInline={0}>
-          <BuyCartButton product={item}>Ver Mais</BuyCartButton>
+          <BuyCartButton colorScheme="dark" product={item}/>
         </Box>
       </Flex>
 

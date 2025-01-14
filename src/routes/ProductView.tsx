@@ -1,7 +1,6 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
 import { useAllProductsContext } from "@/Context/AllProductsContext";
-
+import { Image } from '@chakra-ui/react';
+import { useParams } from 'react-router-dom';
 
 export const ProductView = () => {
     const { id } = useParams(); // Pega o id da URL
@@ -12,6 +11,8 @@ export const ProductView = () => {
         <div>
             <h1>Detalhes do Produto</h1>
             <p>Produto ID: {finalProduct?.name}</p>
+            <Image src={finalProduct?.imageLink}></Image>
+            <p>{finalProduct?.price}</p>
         </div>
     )
 }
