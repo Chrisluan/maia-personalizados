@@ -1,7 +1,7 @@
 import { useAllProductsContext } from '@/Context/AllProductsContext';
 import { ProductCard } from '@/sharedComponents/ProductCard';
 import { Box, Flex, Grid, Text, VStack } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 export const ProductShelf = () => {
 
     const { products } = useAllProductsContext();
