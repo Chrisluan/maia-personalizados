@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const cors = require('cors');
+const data = await getData();
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Permite qualquer origem
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -14,7 +15,7 @@ app.use((req, res, next) => {
 
 app.get('/getProducts', async (req, res) => {
   try {
-    const data = await getData();
+    
     res.json(data);
   } catch (error) {
     console.error("Erro ao buscar os dados:", error);

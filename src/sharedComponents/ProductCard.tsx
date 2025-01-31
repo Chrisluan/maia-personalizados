@@ -8,10 +8,8 @@ export const ProductCard = ({ item }: { item: Product }) => {
   return (
     <Flex
       flexDir={"column"}
-      width={"100%"}
-      maxWidth={"230px"}
-
-      height="auto" // Altura automática no container principal, ajustada pela imagem
+      width={"220px"}
+      maxHeight={"100%"}
     >
       <Link href={`/produto/${item._id}`} _active={{
         bg: "gray.100",
@@ -39,8 +37,7 @@ export const ProductCard = ({ item }: { item: Product }) => {
             <Image
               src={item.imageLink}
               width="100%"
-
-              objectFit={"contain"}
+              objectFit={"cover"}
               alt={item.name + " | " + item.description}
               borderRadius="6px"
               position={"relative"}
@@ -66,11 +63,11 @@ export const ProductCard = ({ item }: { item: Product }) => {
       </Link>
 
       {/* Interagível */}
-      <Flex justifyContent={"space-between"} gap={1.5} marginTop="-2px">
+      <Flex justifyContent={"space-between"} marginTop="-2px">
         <Flex
           style={{
-            boxSizing: "border-box",
-            padding: "0px 8px", // Adjust padding for better fit
+            width:"100%",
+            padding: "0px 4px", // Adjust padding for better fit
             backgroundColor: "white",
             borderRight: "2px solid #531FC2",
             borderLeft: "2px solid #531FC2",
@@ -82,13 +79,13 @@ export const ProductCard = ({ item }: { item: Product }) => {
             alignItems: "center",
           }}
         >
-          <Text fontWeight="bold" fontSizeAdjust={"from-font"} color="#000">
+          <Text fontWeight="bold" color="#000">
             {formatPrice(item.price)}
           </Text>
         </Flex>
 
-        <Box pt={2} paddingInline={0}>
-          <BuyCartButton colorScheme="dark" product={item}/>
+        <Box mt={"5px"} paddingLeft={"5px"}>
+          <BuyCartButton colorScheme="light" product={item}/>
         </Box>
       </Flex>
 

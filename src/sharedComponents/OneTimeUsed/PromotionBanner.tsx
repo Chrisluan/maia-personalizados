@@ -43,6 +43,7 @@ export const PromotionBanner = (props: PromotionBannerProps) => {
                             gap: "10px",
                             justifyContent: "space-between",
                         }}>
+                            
                             <Text>
                                 {product?.description}
                             </Text>

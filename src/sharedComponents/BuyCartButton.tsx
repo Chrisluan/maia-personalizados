@@ -12,29 +12,21 @@ export const BuyCartButton = (props: Props) => {
   const { addProduct, products, removeProduct } = useBuyingContext();
   const { product, colorScheme } = props;
 
-  const isInCart = () => {
-    return products.some((p) => p._id === product._id);
-  };
+  const isInCart = () => products.some((p) => p._id === product._id);
 
-  const handleAddToCart = () => {
-    isInCart() ? removeProduct(product) : addProduct(product);
-  };
+  const handleAddToCart = () => (isInCart() ? removeProduct(product) : addProduct(product));
 
   const colors = {
     light: "#F57F1E",
     dark: "#531FC2",
   };
 
-  const getButtonColor = () => {
-    return colorScheme === "light" ? colors.light : colors.dark;
-  };
+  const getButtonColor = () => (colorScheme === "light" ? colors.light : colors.dark);
 
-  const getButtonHoverColor = () => {
-    return colorScheme === "light" ? "#d96e1a" : "#7a3bff";
-  };
+  const getButtonHoverColor = () => (colorScheme === "light" ? "#d96e1a" : "#7a3bff");
 
   return (
-    <HStack justifyContent={"space-between"} width={"100%"} gap={2}>
+    <HStack justifyContent="space-between" gap={1}>
       <Button
         id="buyNow"
         onClick={handleAddToCart}
@@ -43,24 +35,23 @@ export const BuyCartButton = (props: Props) => {
         _hover={{ bg: getButtonHoverColor() }}
         paddingInline="8px"
         flex="1"
-        flexShrink={0}
-        width={"100%"}
+        
       >
-        COMPRAR
+        {isInCart() ? "REMOVER" : "COMPRAR"}
       </Button>
 
       <IconButton
         id="addToCart"
         onClick={handleAddToCart}
         bg={!isInCart() ? "transparent" : getButtonColor()}
-        border={"2px solid"}
+        border="2.5px solid"
         borderColor={getButtonColor()}
         color="white"
         aria-label="Adicionar ao carrinho"
-        _hover={{ bg: getButtonHoverColor()}}
+        _hover={{ bg: getButtonHoverColor() }}
       >
         {isInCart() ? (
-          <TbShoppingCartX color={"white"} />
+          <TbShoppingCartX color="white" />
         ) : (
           <TbShoppingCartPlus color={getButtonColor()} />
         )}
