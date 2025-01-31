@@ -1,11 +1,10 @@
 const { MongoClient } = require("mongodb");
 require("dotenv").config({ path: "./config.env" });
-
 const express = require('express');
 const app = express();
 const port = 3000;
 const cors = require('cors');
-const data = await getData();
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Permite qualquer origem
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -13,20 +12,25 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/getProducts', async (req, res) => {
-  try {
-    
-    res.json(data);
-  } catch (error) {
-    console.error("Erro ao buscar os dados:", error);
-    res.status(500).send("Erro no servidor");
-  }
-});
+// Função principal para iniciar o servidor
+async function startServer() {
+  const data = await getData();
+  
+  app.get('/getProducts', async (req, res) => {
+    try {
+      res.json(data);
+    } catch (error) {
+      console.error("Erro ao buscar os dados:", error);
+      res.status(500).send("Erro no servidor");
+    }
+  });
+  
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+  });
+}
 
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+startServer();
 
 async function getData() {
   const dbcon = process.env.mongodb;
